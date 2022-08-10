@@ -1,5 +1,5 @@
-import dogcat from"../assets/img/dogcat.jpg";
+import Freddie from"../assets/img/Freddie.jpg";
 
 export const Image = () => {
-return <img src={dogcat} alt="" />;
+return <img src={Freddie} alt="" />;
 };
