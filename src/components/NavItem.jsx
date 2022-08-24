@@ -1,13 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 function NavItem({ label, to }) {
-    return (
+  return (
     <li>
-        <NavLink to={to}>{label}</NavLink>
+      <NavLink to={to}>{label}</NavLink>
     </li>
-    );
+  );
 }
 
-
-    export default NavItem;
+export default NavItem;

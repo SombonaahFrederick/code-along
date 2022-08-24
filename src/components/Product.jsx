@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Product({ product }) {
   return (
@@ -17,19 +18,19 @@ function Product({ product }) {
           </h5>
         </a>
         <div className="flex items-center mt-2.5 mb-5">
-        {product.description}
+          {product.description}
         </div>
         <div className="flex justify-between items-center">
           {/* price */}
           <span className="text-3xl font-bold text-gray-900 dark:text-white">
             ${product.price}
           </span>
-          <a
-            href="#"
+          <Link
+            to={`/products/${product.id}`}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Add to cart
-          </a>
+          </Link>
         </div>
       </div>
     </div>
