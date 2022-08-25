@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import TaskManager from "./components/TaskManager";
 // import Form from "./components/Form";
 // import Product from "./components/Product";
-import ProductList from "./components/ProductList";
+import ProductList from "./pages/ProductList";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";

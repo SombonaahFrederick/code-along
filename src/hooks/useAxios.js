@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { set } from "react-hook-form";
 
 function useAxios(url) {
   const [data, setData] = useState(null);
@@ -14,7 +13,7 @@ function useAxios(url) {
         const result = await axios.get(url);
         setData(result.data);
       } catch (error) {
-        set(error.message);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }

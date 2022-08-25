@@ -1,19 +1,32 @@
 //import React, { useEffect, useState } from "react";
 //import axios from "axios";
-import Product from "./Product";
-import Spinner from "./Spinner";
+import { useEffect } from "react";
+import Product from "../components/Product";
+import Spinner from "../components/Spinner";
 import useAxios from "../hooks/useAxios";
+import { useProductContext } from "../context/productContext";
 
 function ProductList() {
   //const [products, setData] = useState([]);
+  // const { data, isLoading, error } = useAxios(
+  // "https://api.escuelajs.co/api/products"
   const { data, isLoading, error } = useAxios(
-    "https://api.escuelajs.co/api/v1/products"
+    "https://fakestoreapi.com/products"
   );
-  if (isLoading) return <Spinner />;
+  const { products, setProducts } = useProductContext();
 
-  if (error) return <p>{error}</p>;
+  useEffect(() => {
+    setProducts(data);
+  }, [data]);
 
-  // useEffect(() => {
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   // //   const getData = async () => {
   // //     const results = await axios.get(
   //       "https://api.escuelajs.co/api/v1/products"
@@ -25,11 +38,11 @@ function ProductList() {
   // //   //getProducts();
   // }, []);
 
-  console.log(data);
+  console.log(products);
 
   return (
     <div className="flex flex-wrap gap-10 justify-center pt-10">
-      {data.map((data) => (
+      {products?.map((data) => (
         <Product product={data} />
       ))}
     </div>
