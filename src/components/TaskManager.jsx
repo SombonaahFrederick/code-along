@@ -4,14 +4,17 @@ import { v4 as uuid } from "uuid";
 
 import TaskItem from "./TaskItem";
 import background from "../assets/img/lsw4.jpg";
+import { useTaskContext } from "../context/tasksContext";
 
 function TaskManager() {
-  const [tasks, setTasks] = useState(() => {
-    const tasks = localStorage.getItem("tasks");
-    if (!tasks) return [];
-    return JSON.parse(tasks);
-  });
-  const [input, setInput] = useState([]);
+  const { tasks, setValue } = useTaskContext();
+  
+  // const [tasks, setTasks] = useState(() => {
+  //   const tasks = localStorage.getItem("tasks");
+  //   if (!tasks) return [];
+  //   return JSON.parse(tasks);
+  // });
+  const [input, setInput] = useState("");
   // const [tasks, setTasks] = useState(["Learn HTML", "Learn CSS"]);
   // const [input, setInput] = useState("");
 
@@ -26,7 +29,7 @@ function TaskManager() {
       completed: true,
     };
 
-    setTasks([newTask, ...tasks]);
+    setValue([newTask, ...tasks]);
     setInput("");
   };
 
